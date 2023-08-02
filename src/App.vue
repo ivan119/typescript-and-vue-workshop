@@ -1,9 +1,10 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { ref } from 'vue'
+import HelloVue from '@/components/HelloVue.vue'
+</script>
 
 <template>
-  <header></header>
-
-  <main><div><h1 class="text-8xl text-red-900">Hello Vue</h1></div></main>
+  <HelloVue />
 </template>
 
 <style scoped></style>
