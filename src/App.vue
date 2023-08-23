@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import { ref } from 'vue'
-import HelloVue from '@/components/HelloVue.vue'
+import Navbar from '@/components/Navbar.vue'
 </script>
 
 <template>
-  <HelloVue />
+  <navbar />
+  <RouterView />
 </template>
 
 <style scoped></style>
