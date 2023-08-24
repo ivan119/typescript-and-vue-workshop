@@ -1,5 +1,16 @@
 <script>
+import { useRoute } from 'vue-router'
+import {computed} from 'vue'
 export default {
+  setup() {
+    const route = useRoute()
+    const currentPath = computed(() => {
+      return route.path
+    })
+    return {
+      currentPath
+    }
+  },
   props: ['tagline'],
   data: () => ({
     navList: [
@@ -22,16 +33,18 @@ export default {
 
 <style scoped>
 .navbar {
-  @apply flex flex-row justify-between bg-transparent border-b-2 border-amber-500 py-4
+  @apply flex flex-row justify-between bg-transparent border-b-2 border-amber-500 py-4;
 }
 .navbar-end {
-  @apply flex flex-row space-x-2 items-center h-full pr-4
+  @apply flex flex-row space-x-2 items-center h-full pr-4;
 }
 .navbar-item {
-  @apply text-green-400 font-bold text-xl hover:text-blue-400 transition-colors ease-linear duration-200 cursor-pointer active:text-blue-400
+  @apply text-green-400 font-bold text-xl hover:text-blue-400 transition-all ease-linear duration-200 cursor-pointer;
+}
+.active {
+  @apply border-b-2 border-blue-400 text-blue-400
 }
 </style>
-
 
 <template>
   <nav class="navbar has-shadow">
@@ -47,8 +60,13 @@ export default {
         </div>
       </div>
       <div class="navbar-end">
-        <div v-for="navItem in navList" class="navbar-item" :key="`nav-${navItem.name}`">
-          <router-link :to="navItem.path">{{ navItem.name }} </router-link>
+        <div
+          v-for="navItem in navList"
+          class="navbar-item"
+          :class="{ active: navItem.path === currentPath }"
+          :key="`nav-${navItem.name}`"
+        >
+          <router-link :to="navItem.path">{{ navItem.name }}</router-link>
         </div>
       </div>
     </div>
