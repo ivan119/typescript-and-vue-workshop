@@ -1,6 +1,6 @@
 <script>
 import { useRoute } from 'vue-router'
-import {computed} from 'vue'
+import { computed } from 'vue'
 export default {
   setup() {
     const route = useRoute()
@@ -42,7 +42,7 @@ export default {
   @apply text-green-400 font-bold text-xl hover:text-blue-400 transition-all ease-linear duration-200 cursor-pointer;
 }
 .active {
-  @apply border-b-2 border-blue-400 text-blue-400
+  @apply border-b-2 border-blue-400 text-blue-400;
 }
 </style>
 
